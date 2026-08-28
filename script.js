@@ -75,3 +75,18 @@ if (searchIcon) {
 
     });
 }
+
+const menuIcon = document.querySelector(".menu-icon");
+const mobileMenu = document.getElementById("mobileMenu");
+
+if (menuIcon && mobileMenu) {
+    menuIcon.addEventListener("click", function() {
+        mobileMenu.classList.toggle("show");
+    });
+
+    mobileMenu.querySelectorAll("a").forEach(function(link) {
+        link.addEventListener("click", function() {
+            mobileMenu.classList.remove("show");
+        });
+    });
+}
