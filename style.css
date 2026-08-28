@@ -284,8 +284,10 @@ nav > div {
     animation: scrollProducts 22s linear infinite;
 }
 
-.product-grid:hover {
-    animation-play-state: paused;
+@media (hover: hover) {
+    .product-grid:hover {
+        animation-play-state: paused;
+    }
 }
 
 @keyframes scrollProducts {
