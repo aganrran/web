@@ -272,62 +272,29 @@ nav > div {
 
 /* PRODUCTS (home page) */
 
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-}
-
-.product-image {
-    position: relative;
-    background: #f3eeee;
-    aspect-ratio: 1;
+.scroll-wrapper {
     overflow: hidden;
+    width: 100%;
 }
 
-.product-image img {
-    height: 100%;
-    object-fit: cover;
+.product-grid {
+    display: flex;
+    gap: 25px;
+    width: max-content;
+    animation: scrollProducts 22s linear infinite;
 }
 
-.add-cart {
-    position: absolute;
-    right: 15px;
-    bottom: 15px;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: white;
-    font-size: 22px;
+.product-grid:hover {
+    animation-play-state: paused;
 }
 
-.product-info {
-    padding: 15px 0;
+@keyframes scrollProducts {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
-.product-info h3 {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 7px;
-}
-
-.product-info p {
-    font-size: 14px;
-    color: var(--muted);
-}
-
-.products {
-    background-color: #FFF0F3;
-    padding: 60px 5%;
-    margin: 40px auto;
-    max-width: 1200px;
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-}
-
-.products .section-heading {
-    text-align: center;
-    margin-bottom: 35px;
+.product-grid .product-card {
+    flex: 0 0 260px;
 }
 
 /* ABOUT (unused for now, left as-is) */
