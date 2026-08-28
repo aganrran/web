@@ -1,0 +1,77 @@
+const categoryButtons = document.querySelectorAll(".category-btn");
+const products = document.querySelectorAll(".product-card");
+
+categoryButtons.forEach(function(button) {
+
+    button.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        const selectedCategory = button.dataset.category;
+
+        products.forEach(function(product) {
+
+            if (product.dataset.category === selectedCategory) {
+                product.style.display = "";
+            } else {
+                product.style.display = "none";
+            }
+
+        });
+
+    });
+
+});
+
+const searchInput = document.getElementById("searchInput");
+const searchButton = document.querySelector(".search-box button");
+
+if (searchInput && searchButton) {
+
+    function searchProducts() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+
+        products.forEach(product => {
+            const title = product.querySelector(".product-title").textContent.toLowerCase();
+            const subtitle = product.querySelector(".product-sub").textContent.toLowerCase();
+            const category = product.dataset.category.toLowerCase();
+
+            if (
+                title.includes(searchTerm) ||
+                subtitle.includes(searchTerm) ||
+                category.includes(searchTerm)
+            ) {
+                product.style.display = "";
+            } else {
+                product.style.display = "none";
+            }
+        });
+    }
+
+    searchButton.addEventListener("click", searchProducts);
+
+    searchInput.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            searchProducts();
+        }
+    });
+
+    if (window.location.hash === "#searchInput") {
+        searchInput.focus();
+    }
+}
+
+
+const searchIcon = document.querySelector(".search-icon");
+
+if (searchIcon) {
+    searchIcon.addEventListener("click", function() {
+
+        if (searchInput) {
+            searchInput.focus();
+        } else {
+            window.location.href = "playyy.html#searchInput";
+        }
+
+    });
+}
