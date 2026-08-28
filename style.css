@@ -272,70 +272,33 @@ nav > div {
 
 /* PRODUCTS (home page) */
 
-.arrival-track {
+.scroll-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+.product-grid {
     display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 6px;
-    scrollbar-width: none;
+    gap: 25px;
+    width: max-content;
+    animation: scrollProducts 22s linear infinite;
 }
 
-.arrival-track::-webkit-scrollbar {
-    display: none;
+@media (hover: hover) {
+    .product-grid:hover {
+        animation-play-state: paused;
+    }
 }
 
-.arrival-card {
-    flex: 0 0 240px;
-    scroll-snap-align: start;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 15px;
-    position: relative;
-    background: white;
+@keyframes scrollProducts {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
-.arrival-card .product-img {
-    width: 100%;
-    height: 220px;
-    object-fit: contain;
-    margin-bottom: 15px;
+.product-grid .product-card {
+    flex: 0 0 260px;
 }
 
-.arrival-card .product-title {
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.arrival-card .product-price {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.arrival-card .wishlist-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    color: var(--primary-pink);
-    font-size: 17px;
-}
-
-.arrival-card .btn-add-cart {
-    display: block;
-    width: 100%;
-    background-color: var(--primary-pink);
-    color: black;
-    border: none;
-    padding: 10px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 600;
-    cursor: pointer;
-}
 /* ABOUT (unused for now, left as-is) */
 
 .about {

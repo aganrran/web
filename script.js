@@ -90,35 +90,3 @@ if (menuIcon && mobileMenu) {
         });
     });
 }
-const arrivalTrack = document.querySelector(".arrival-track");
-
-if (arrivalTrack) {
-
-    let autoScroll;
-
-    function startAutoScroll() {
-        autoScroll = setInterval(function() {
-            arrivalTrack.scrollLeft += 1;
-
-            if (arrivalTrack.scrollLeft + arrivalTrack.clientWidth >= arrivalTrack.scrollWidth) {
-                arrivalTrack.scrollLeft = 0;
-            }
-        }, 20);
-    }
-
-    function pauseAutoScroll() {
-        clearInterval(autoScroll);
-    }
-
-    function resumeAutoScrollLater() {
-        clearInterval(autoScroll);
-        setTimeout(startAutoScroll, 3000);
-    }
-
-    startAutoScroll();
-
-    arrivalTrack.addEventListener("touchstart", pauseAutoScroll);
-    arrivalTrack.addEventListener("mousedown", pauseAutoScroll);
-    arrivalTrack.addEventListener("touchend", resumeAutoScrollLater);
-    arrivalTrack.addEventListener("mouseup", resumeAutoScrollLater);
-}
